@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import Header from "../Shared/Header/Header";
+import { Outlet } from "react-router-dom";
+import Footer from "../Shared/Footer/Footer";
 
 const Main = () => {
   return (
-    <>
-       <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatibus.</h2>
-    </>
-  )
-}
+    <div className="mx-4 md:mx-16">
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </div>
+  );
+};
 
-export default Main
+export default Main;
