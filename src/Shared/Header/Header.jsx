@@ -19,7 +19,7 @@ const Header = () => {
         <img src={Logo} alt="toycraze Logo" />
       </Navbar.Brand>
       <div className="flex md:order-2">
-        {user ? (
+        {user ? 
           <>
             <img
               src={user.photoURL}
@@ -28,31 +28,31 @@ const Header = () => {
               className="w-10 h-10 rounded-full mr-2 "
             />
             <Link onClick={handleSignOut}>
-              <Button className="md:font-semibold md:text-base">Log Out</Button>
+              <Button className="md:font-semibold md:text-base my-2">Log Out</Button>
             </Link>
           </>
-        ) : (
+         : (
           <Link to="/login">
-            <Button className="md:font-semibold md:text-base">Login</Button>
+            <Button className="md:font-semibold md:text-base my-2">Login</Button>
           </Link>
         )}
-        <Navbar.Toggle />
+        <Navbar.Toggle  className="ml-2"/>
       </div>
       <Navbar.Collapse className="font-semibold">
-        <Link className="md:font-semibold md:text-base" to="/">
+        <Link className="md:font-semibold md:text-base my-2" to="/">
           Home
         </Link>
-        <Link className="md:font-semibold md:text-base" to="/blog">
-          Blog
-        </Link>
-        <Link className="md:font-semibold md:text-base" to="/alltoy">
+        <Link className="md:font-semibold md:text-base my-2" to="/alltoys">
           All Toys
         </Link>
-        <Link className="md:font-semibold md:text-base" to="/addtoy">
-          Add Toy
+        <Link className="md:font-semibold md:text-base my-2" to="/mytoys">
+          My Toys
         </Link>
-        <Link className="md:font-semibold md:text-base" to="/mytoy">
-          My Toy
+        <Link className="md:font-semibold md:text-base my-2" to="/addtoy">
+          Add A Toy
+        </Link>
+        <Link className="md:font-semibold md:text-base my-2" to="/blogs">
+          Blogs
         </Link>
       </Navbar.Collapse>
     </Navbar>
