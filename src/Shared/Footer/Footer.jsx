@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBeer, FaEnvelope, FaFacebook, FaMapMarker, FaPhone, FaTwitter } from "react-icons/fa";
+import Copyright from "./Copyright";
 
 const Footer = () => {
   return (
@@ -44,6 +45,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <Copyright></Copyright>
     </footer>
   );
 };

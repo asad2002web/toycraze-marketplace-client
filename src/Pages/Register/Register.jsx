@@ -1,13 +1,13 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { FaGoogle } from "react-icons/fa";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-
-    const { createUser } = useContext(AuthContext);
-
+  const { loginWithGoogle, createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,13 +16,40 @@ const Register = () => {
     const password = form.password.value;
     const photoUrl = form.photo.value;
     // console.log(name, email, password, photoUrl)
+
+    if (password.length < 6) {
+      return;
+    }
+    //  Create User Register
     createUser(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log('created user', user)
-            })
-            .catch(error => console.log(error))
-    console.log("working register page ...."); //Just test
+      .then(async (result) => {
+        const loggedUser = result.user;
+        await updateProfile(loggedUser, {
+          displayName: name,
+          photoURL: photoUrl,
+        });
+        console.log(loggedUser);
+        form.reset();
+        navigate("/");
+        // setSuccess("Registration is successfully completed");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  };
+
+  //   Login Google
+  const handleGoogleSignUp = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const loggedGoogle = result.user;
+        console.log(loggedGoogle);
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div className="md:flex flex-row-reverse items-center mt-6 gap-6">
@@ -93,7 +120,12 @@ const Register = () => {
           </p>
         </div>
         <div>
-          <Button className="block mx-auto" color="purple" pill={true}>
+          <Button
+            onClick={handleGoogleSignUp}
+            className="block mx-auto"
+            color="purple"
+            pill={true}
+          >
             <FaGoogle className="mr-3"></FaGoogle>
             Google
           </Button>
