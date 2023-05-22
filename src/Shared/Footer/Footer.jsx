@@ -1,52 +1,84 @@
 import React from "react";
-import { FaBeer, FaEnvelope, FaFacebook, FaMapMarker, FaPhone, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLongArrowAltRight, FaMailchimp, FaMailBulk, FaPhone } from "react-icons/fa";
+import Logo from '../../assets/WTOYCraze.png'
+import { Link } from "react-router-dom";
 import Copyright from "./Copyright";
 
 const Footer = () => {
   return (
-    <footer className="text-dark bg-gray-200 rounded-lg p-8 mt-12">
-      <div className="container mx-auto py-8">
-        <div className="flex flex-wrap -mx-4">
-          <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0">
-            <div className="flex items-center mb-2">
-              <FaEnvelope className="mr-2" />
-              <a href="mailto:info@toycrazemarketplace.com">
-                info@toycrazemarketplace.com
-              </a>
+    <>
+      <footer className="bg-gray-800 text-white">
+        <div className="container mx-auto py-8 px-4 md:px-16">
+          <div className="md:flex  justify-between items-center">
+            <div className="md:w-1/4">
+              <div className="flex items-center">
+                <img
+                  src={Logo}
+                  alt="Logo"
+                />
+              </div>
+              <p className="text-sm my-4">Electronic Learning Toys: These toys focus on educational content and help children learn letters, numbers, shapes, colors, and various subjects through interactive games and activities</p>
+              <div className="flex gap-4 items-center mt-3">
+              <FaLongArrowAltRight/>
+              <p className="text-sm">123 Street, City, Country</p>
+              </div>
+              <div className="flex gap-4 items-center mt-3">
+              <FaMailBulk/>
+              <p className="text-sm">info@company.com</p>
+              </div>
+              <div className="flex gap-4 items-center mt-3">
+              <FaPhone/>
+              <p className="text-sm">+1234567890</p>
+              </div>
             </div>
-            <div className="flex items-center mb-2">
-              <FaPhone className="mr-2" />
-              <span>+1 123-456-7890</span>
+            <div className=" mt-4 md:mt-0">
+              <h4 className="text-2xl text-orange-500 font-semibold">Quick Links</h4>
+              <ul className="mt-2">
+                <li className="text-md mt-3"><Link to="">Home</Link></li>
+                <li className="text-md mt-3"><Link to="">About</Link></li>
+                <li className="text-md mt-3"><Link to="">Services</Link></li>
+                <li className="text-md mt-3"><Link to="">Contact</Link></li>
+              </ul>
             </div>
-            <div className="flex items-center">
-              <FaMapMarker className="mr-2" />
-              <span>123 Toy Street, Toyland</span>
+            <div className=" mt-4 md:mt-0">
+              <h4 className="text-2xl text-orange-500 font-semibold">Information</h4>
+              <ul className="mt-2">
+                <li className="text-md mt-3"><Link to="">Product support</Link></li>
+                <li className="text-md mt-3"><Link to="">Checkout</Link></li>
+                <li className="text-md mt-3"><Link to="">Affiliate</Link></li>
+                <li className="text-md mt-3"><Link to="">About Us</Link></li>
+              </ul>
             </div>
-          </div>
-          <div className="w-full md:w-2/3 px-4">
-            <div className="flex justify-end">
+            <div className="flex flex-row md:flex-col md:gap-6 mt-8">
               <a
-                href="https://www.facebook.com/toycrazemarketplace"
+                href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-dark mr-4 hover:text-blue-500"
+                className="mr-4"
               >
-                <FaFacebook />
+                <FaFacebook className="text-white text-2xl" />
               </a>
               <a
-                href="https://www.twitter.com/toycrazemarket"
+                href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl text-dark hover:text-blue-500"
+                className="mr-4"
               >
-                <FaTwitter />
+                <FaTwitter className="text-white text-2xl" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-white text-2xl" />
               </a>
             </div>
           </div>
         </div>
-      </div>
-      <Copyright></Copyright>
-    </footer>
+        <Copyright></Copyright>
+      </footer>
+    </>
   );
 };
 
