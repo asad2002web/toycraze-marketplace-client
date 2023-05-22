@@ -35,7 +35,7 @@ const Testimonial = () => {
             <div>
               <img
                 className="w-16 h-16 border-gray-700 border-2 rounded-full"
-                src="https://i.ibb.co/GM1YvDg/image-2-1.png"
+                src="https://i.ibb.co/zFHq1tv/image-3-1.png"
                 alt=""
               />
             </div>
@@ -55,7 +55,7 @@ const Testimonial = () => {
             <div>
               <img
                 className="w-16 h-16 border-gray-700 border-2 rounded-full"
-                src="https://i.ibb.co/GM1YvDg/image-2-1.png"
+                src="https://i.ibb.co/nBXdp7c/image-4.png"
                 alt=""
               />
             </div>
@@ -76,8 +76,3 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
-
-// https://i.ibb.co/nBXdp7c/image-4.png
-// https://i.ibb.co/s2C56RX/image-1-1.png
-// https://i.ibb.co/GM1YvDg/image-2-1.png
-// https://i.ibb.co/zFHq1tv/image-3-1.png
