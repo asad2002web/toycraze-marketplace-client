@@ -4,23 +4,46 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  //   console.log(user);
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        const form = e.target;
-        const name = form.toyName.value;
-        const photo = form.photo.value;
-        const email = form.email.value;
-        const sellerName = form.sellerName.value;
-        const price = form.price.value;
-        const ratting = form.ratting.value;
-        const quantity = form.quantity.value;
-        const subCategories = form.subCategories.value;
-        const description = form.description.value;
-        const newToy = {name, photo, email, sellerName, price, ratting, quantity, subCategories, description}
-        console.log(newToy)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.toyName.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const sellerName = form.sellerName.value;
+    const price = form.price.value;
+    const ratting = form.ratting.value;
+    const quantity = form.quantity.value;
+    const subCategories = form.subCategories.value;
+    const description = form.description.value;
+    const newToy = {
+      name,
+      photo,
+      email,
+      sellerName,
+      price,
+      ratting,
+      quantity,
+      subCategories,
+      description,
+    };
+    console.log(newToy);
+
+    // Send data to the server
+    fetch("http://localhost:4000/electronicsToy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div className="my-8">
@@ -51,7 +74,7 @@ const AddToy = () => {
               shadow={true}
               name="email"
               placeholder="Seller Email"
-              defaultValue={user?.email}
+              value={user?.email}
             />
           </div>
           <div className="col-span-2 col-start-3 row-start-2">
@@ -99,6 +122,7 @@ const AddToy = () => {
               name="subCategories"
               placeholder="Sub-Categories"
             />
+            
           </div>
         </div>
         <div>
@@ -118,7 +142,6 @@ const AddToy = () => {
           >
             Add A Toy
           </Button>
-        
         </div>
       </form>
     </div>
