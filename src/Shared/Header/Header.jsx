@@ -24,19 +24,19 @@ const Header = () => {
       </Navbar.Brand>
       <div className="flex md:order-2">
         {user ? (
-          <>
+          <div className="flex items-center">
             <img
               src={user.photoURL}
               title={user.displayName}
               alt=""
-              className="w-10 h-10 rounded-full mr-2 "
+              className="w-10 h-10 rounded-full mr-4 "
             />
             <Link onClick={handleSignOut}>
               <Button className="md:font-semibold md:text-base my-2">
                 Log Out
               </Button>
             </Link>
-          </>
+          </div>
         ) : (
           <Link to="/login">
             <Button className="md:font-semibold md:text-base my-2">

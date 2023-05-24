@@ -1,5 +1,5 @@
-import { Button, Label, TextInput } from "flowbite-react";
-import React, { useContext } from "react";
+import { Button, TextInput } from "flowbite-react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const AddToy = () => {
@@ -7,15 +7,16 @@ const AddToy = () => {
   //   console.log(user);
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     const form = e.target;
     const name = form.toyName.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const sellerName = form.sellerName.value;
-    const price = form.price.value;
-    const ratting = form.ratting.value;
-    const quantity = form.quantity.value;
+    const price = parseInt(form.price.value);
+    const ratting = parseFloat(form.ratting.value);
+    const quantity = parseInt(form.quantity.value);
     const subCategories = form.subCategories.value;
     const description = form.description.value;
     const newToy = {
@@ -43,6 +44,8 @@ const AddToy = () => {
       .then((data) => {
         console.log(data);
       });
+
+      form.reset() //Form Reset
   };
 
   return (
@@ -98,7 +101,7 @@ const AddToy = () => {
           </div>
           <div className="row-start-3">
             <TextInput
-              type="number"
+              type="text"
               required={true}
               shadow={true}
               name="ratting"
@@ -115,14 +118,18 @@ const AddToy = () => {
             />
           </div>
           <div className="row-start-3">
-            <TextInput
-              type="text"
-              required={true}
-              shadow={true}
+            <select
+            defaultValue='Defult Catrgories'
               name="subCategories"
-              placeholder="Sub-Categories"
-            />
-            
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="Defult Catrgories">
+                Choose a Sub-Categories
+              </option>
+              <option value="Kids plug & play">Kids plug & play</option>
+              <option value="Kids Tablets">Kids Tablets</option>
+              <option value="Kids Music & Karaoke">Kids Music & Karaoke</option>
+            </select>
           </div>
         </div>
         <div>
