@@ -4,26 +4,19 @@ import "react-tabs/style/react-tabs.css";
 import Bunner from "./Bunner";
 import Testimonial from "./Testimonial";
 import FAQuestion from "./FAQuestion";
+import ToyGallery from "./ToyGallery";
+import { ToastContainer } from "react-toastify";
+import ToysCategories from "./ToysCategories/ToysCategories";
 
 const Home = () => {
-  const [tabIndex, setTabIndex] = useState(0);
   return (
     <div>
       <Bunner></Bunner>
-      {/* Bunner component */}
-      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList>
-          <Tab>Title 1</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 2</Tab>
-        </TabList>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-      </Tabs>
-      {/* Component */}
+      <ToysCategories></ToysCategories>
+      <ToyGallery></ToyGallery>
       <FAQuestion></FAQuestion>
       <Testimonial></Testimonial>
+      <ToastContainer />
     </div>
   );
 };

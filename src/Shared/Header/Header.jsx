@@ -6,7 +6,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Header = () => {
   const { logOut, user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   // sing out
   const handleSignOut = () => {
     logOut()
@@ -14,12 +14,16 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <Navbar fluid={true} rounded={true} className="py-4 bg-slate-100 sm:px-0 px-0">
+    <Navbar
+      fluid={true}
+      rounded={true}
+      className="py-4 bg-slate-100 sm:px-0 px-0"
+    >
       <Navbar.Brand>
         <img src={Logo} alt="toycraze Logo" />
       </Navbar.Brand>
       <div className="flex md:order-2">
-        {user ? 
+        {user ? (
           <>
             <img
               src={user.photoURL}
@@ -28,15 +32,19 @@ const Header = () => {
               className="w-10 h-10 rounded-full mr-2 "
             />
             <Link onClick={handleSignOut}>
-              <Button className="md:font-semibold md:text-base my-2">Log Out</Button>
+              <Button className="md:font-semibold md:text-base my-2">
+                Log Out
+              </Button>
             </Link>
           </>
-         : (
+        ) : (
           <Link to="/login">
-            <Button className="md:font-semibold md:text-base my-2">Login</Button>
+            <Button className="md:font-semibold md:text-base my-2">
+              Login
+            </Button>
           </Link>
         )}
-        <Navbar.Toggle  className="ml-2"/>
+        <Navbar.Toggle className="ml-2" />
       </div>
       <Navbar.Collapse className="font-semibold">
         <Link className="md:font-semibold md:text-base my-2" to="/">
@@ -45,12 +53,18 @@ const Header = () => {
         <Link className="md:font-semibold md:text-base my-2" to="/alltoys">
           All Toys
         </Link>
-        <Link className="md:font-semibold md:text-base my-2" to="/mytoys">
-          My Toys
-        </Link>
-        <Link className="md:font-semibold md:text-base my-2" to="/addtoy">
-          Add A Toy
-        </Link>
+        {user ? (
+          <>
+            <Link className="md:font-semibold md:text-base my-2" to="/mytoys">
+              My Toys
+            </Link>
+            <Link className="md:font-semibold md:text-base my-2" to="/addtoy">
+              Add A Toy
+            </Link>
+          </>
+        ) : (
+          ""
+        )}
         <Link className="md:font-semibold md:text-base my-2" to="/blogs">
           Blogs
         </Link>

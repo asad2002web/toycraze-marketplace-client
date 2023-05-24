@@ -4,26 +4,18 @@ import React from "react";
 const Bunner = () => {
   return (
     <div>
-      <div className="h-56 my-12 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="h-56 my-12 sm:h-64 xl:h-96 2xl:h-96">
         <Carousel>
           <img
-            src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+            src="https://i.ibb.co/Sx21yJX/photo-1582571352032-448f7928eca3.jpg"
             alt="..."
           />
           <img
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
+            src="https://i.ibb.co/PDK4JtD/istockphoto-867830532-612x612.jpg"
             alt="..."
           />
           <img
-            src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-            alt="..."
-          />
-          <img
-            src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
+            src="https://i.ibb.co/D7kXwk7/istockphoto-1322274556-170667a.jpg"
             alt="..."
           />
         </Carousel>
