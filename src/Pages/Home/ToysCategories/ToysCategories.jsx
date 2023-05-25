@@ -46,11 +46,11 @@ const ToysCategories = () => {
                   {toy.name}
                 </h5>
                 <div className="flex justify-between items-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                  <p className="font-normal text-indigo-700 dark:text-indigo-400">
                     Ratting: {toy.ratting}{" "}
                     <FaStar className="inline pb-1"></FaStar>
                   </p>
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                  <p className="font-semibold text-indigo-700 dark:text-indigo-400">
                     $ {toy.price}
                   </p>
                 </div>
@@ -71,11 +71,11 @@ const ToysCategories = () => {
                   {toy.name}
                 </h5>
                 <div className="flex justify-between items-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                  <p className="font-normal text-indigo-700 dark:text-indigo-400">
                     Ratting: {toy.ratting}{" "}
                     <FaStar className="inline pb-1"></FaStar>
                   </p>
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                  <p className="font-semibold text-indigo-700 dark:text-indigo-400">
                     $ {toy.price}
                   </p>
                 </div>
@@ -96,11 +96,11 @@ const ToysCategories = () => {
                   {toy.name}
                 </h5>
                 <div className="flex justify-between items-center">
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                  <p className="font-normal text-indigo-700 dark:text-indigo-400">
                     Ratting: {toy.ratting}{" "}
                     <FaStar className="inline pb-1"></FaStar>
                   </p>
-                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                  <p className="font-semibold text-indigo-700 dark:text-indigo-400">
                     $ {toy.price}
                   </p>
                 </div>

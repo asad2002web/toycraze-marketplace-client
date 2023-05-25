@@ -4,17 +4,13 @@ import React from "react";
 const AllToyTable = ({ toy, i }) => {
   const {
     name,
-    photo,
-    email,
     sellerName,
     price,
-    ratting,
     quantity,
     subCategories,
-    description,
   } = toy;
   return (
-    <>
+    
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <td className=" text-center">{i + 1}</td>
         <th
@@ -31,7 +27,7 @@ const AllToyTable = ({ toy, i }) => {
           <Button gradientDuoTone="cyanToBlue">Details</Button>
         </td>
       </tr>
-    </>
+   
   );
 };
 
