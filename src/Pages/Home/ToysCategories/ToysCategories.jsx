@@ -1,5 +1,6 @@
 import { Button, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { toast } from "react-toastify";
 
@@ -37,26 +38,80 @@ const ToysCategories = () => {
           </Tab>
         </TabList>
         <TabPanel>
-          <div className="grid grid-cols-3 grid-rows-1 gap-4">
+          <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
               <Card>
-                <img className="h-48" src={toy.photo} alt="" />
-              <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {toy.name}
-              </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                $ {toy.price}
-              </p>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                {toy.ratting}
-              </p>
-              <Button color="dark">Details</Button>
-            </Card>
+                <img className="h-56 block mx-auto" src={toy.photo} alt="" />
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {toy.name}
+                </h5>
+                <div className="flex justify-between items-center">
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    Ratting: {toy.ratting}{" "}
+                    <FaStar className="inline pb-1"></FaStar>
+                  </p>
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    $ {toy.price}
+                  </p>
+                </div>
+
+                <Button className="mt-8" color="dark">
+                  Details
+                </Button>
+              </Card>
             ))}
           </div>
         </TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>
+          <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
+            {toyCategories?.map((toy) => (
+              <Card>
+                <img className="h-56 block mx-auto" src={toy.photo} alt="" />
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {toy.name}
+                </h5>
+                <div className="flex justify-between items-center">
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    Ratting: {toy.ratting}{" "}
+                    <FaStar className="inline pb-1"></FaStar>
+                  </p>
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    $ {toy.price}
+                  </p>
+                </div>
+
+                <Button className="mt-8" color="dark">
+                  Details
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
+            {toyCategories?.map((toy) => (
+              <Card>
+                <img className="h-56 block mx-auto" src={toy.photo} alt="" />
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {toy.name}
+                </h5>
+                <div className="flex justify-between items-center">
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    Ratting: {toy.ratting}{" "}
+                    <FaStar className="inline pb-1"></FaStar>
+                  </p>
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    $ {toy.price}
+                  </p>
+                </div>
+
+                <Button className="mt-8" color="dark">
+                  Details
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </TabPanel>
       </Tabs>
     </div>
   );
