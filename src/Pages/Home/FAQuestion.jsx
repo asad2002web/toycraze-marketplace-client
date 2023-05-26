@@ -1,7 +1,11 @@
+import Aos from "aos";
 import { Accordion } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
 
 const FAQuestion = () => {
+  useEffect(()=>{
+    Aos.init({duration:2000});
+  },[])
   return (
     <div className="my-8">
         <div className="text-center">
@@ -9,7 +13,7 @@ const FAQuestion = () => {
         <h5 className="text-md">Find your answer from here</h5>
         </div>
       <div className="flex flex-col-reverse md:flex-row items-center md:gap-8 justify-between">
-        <div className="md:w-1/2">
+        <div data-aos="fade-right" className="md:w-1/2">
           <Accordion>
             <Accordion.Panel>
               <Accordion.Title className="text-orange-500 font-semibold">
@@ -75,7 +79,7 @@ const FAQuestion = () => {
             </Accordion.Panel>
           </Accordion>
         </div>
-        <div className="md:w-1/2 flex justify-center">
+        <div data-aos="fade-left" className="md:w-1/2 flex justify-center">
           <img
             className="w-[80%] h-[80%]"
             src="https://i.ibb.co/TRFpCFY/question.png"

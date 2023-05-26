@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const AllToyTable = ({ toy, i }) => {
   const { _id, name, sellerName, price, quantity, subCategories } = toy;
   return (
+    <>
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
       <td className=" text-center">{i + 1}</td>
       <th
@@ -23,6 +24,7 @@ const AllToyTable = ({ toy, i }) => {
         </Link>
       </td>
     </tr>
+    </>
   );
 };
 

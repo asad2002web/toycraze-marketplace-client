@@ -1,7 +1,11 @@
+import Aos from "aos";
 import { Card } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Testimonial = () => {
+  useEffect(()=>{
+    Aos.init({duration:2000});
+  },[])
   return (
     <div>
       <div className="text-center mt-8">
@@ -11,7 +15,7 @@ const Testimonial = () => {
 
       <div className="my-8 flex flex-col md:flex-row justify-between gap-x-6 gap-y-6">
         <Card>
-          <div className="flex items-center gap-4">
+          <div data-aos="fade-right" className="flex items-center gap-4">
             <div>
               <img
                 className="w-16 h-16 border-gray-700 border-2 rounded-full"
@@ -31,7 +35,7 @@ const Testimonial = () => {
           </p>
         </Card>
         <Card>
-          <div className="flex items-center gap-4">
+          <div data-aos="fade-left" className="flex items-center gap-4">
             <div>
               <img
                 className="w-16 h-16 border-gray-700 border-2 rounded-full"
@@ -51,7 +55,7 @@ const Testimonial = () => {
           </p>
         </Card>
         <Card>
-          <div className="flex items-center gap-4">
+          <div data-aos="fade-right" className="flex items-center gap-4">
             <div>
               <img
                 className="w-16 h-16 border-gray-700 border-2 rounded-full"

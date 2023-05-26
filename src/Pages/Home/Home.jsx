@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import React, { useEffect } from "react";
 import "react-tabs/style/react-tabs.css";
 import Bunner from "./Bunner";
 import Testimonial from "./Testimonial";

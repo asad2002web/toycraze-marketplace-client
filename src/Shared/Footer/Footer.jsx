@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Copyright from "./Copyright";
 
 const Footer = () => {
+ 
   return (
     <>
       <footer className="bg-gray-800 text-white">

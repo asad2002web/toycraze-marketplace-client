@@ -34,7 +34,7 @@ const AddToy = () => {
     console.log(newToy);
 
     // Send data to the server
-    fetch("http://localhost:4000/electronicsToy", {
+    fetch("https://toy-craze-marketplace-server.vercel.app/electronicsToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",

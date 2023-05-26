@@ -1,3 +1,4 @@
+import Aos from "aos";
 import { Button, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
@@ -9,13 +10,15 @@ const ToysCategories = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [toys, setToys] = useState([]);
   const [activeTab, setActiveTab] = useState("Kids plug & play");
-
+  useEffect(()=>{
+    Aos.init({duration:2000});
+  },[])
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
 
   useEffect(() => {
-    fetch(`http://localhost:4000/allToys`)
+    fetch(`https://toy-craze-marketplace-server.vercel.app/allToys`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
@@ -39,7 +42,7 @@ const ToysCategories = () => {
           </Tab>
         </TabList>
         <TabPanel>
-          <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
+          <div data-aos="fade-right" className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
               <Card key={toy._id}>
                 <img className="h-56 block mx-auto" src={toy.photo} alt="" />
@@ -66,7 +69,7 @@ const ToysCategories = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
+          <div data-aos="fade-left" className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
               <Card key={toy._id}>
                 <img className="h-56 block mx-auto" src={toy.photo} alt="" />
@@ -90,7 +93,7 @@ const ToysCategories = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
+          <div data-aos="fade-right" className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
               <Card key={toy._id}>
                 <img className="h-56 block mx-auto" src={toy.photo} alt="" />

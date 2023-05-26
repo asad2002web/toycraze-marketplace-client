@@ -23,6 +23,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+       
         form.reset();
         navigate("/");
         // setSuccess("Login is successfully completed");

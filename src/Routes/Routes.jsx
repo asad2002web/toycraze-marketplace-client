@@ -29,7 +29,7 @@ const Routes = createBrowserRouter([
       {
         path: "alltoys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:4000/allToys"),
+        // loader: () => fetch("https://toy-craze-marketplace-server.vercel.app/allToys"),
       },
       {
         path: "mytoys",
@@ -42,12 +42,12 @@ const Routes = createBrowserRouter([
       {
         path: "update/:id",
         element: <UpdateToy></UpdateToy>,
-        loader: ({params}) => fetch(`http://localhost:4000/allToys/${params.id}`),
+        loader: ({params}) => fetch(`https://toy-craze-marketplace-server.vercel.app/allToys/${params.id}`),
       },
       {
         path: "toydetails/:id",
         element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:4000/allToys/${params.id}`)
+        loader: ({params}) => fetch(`https://toy-craze-marketplace-server.vercel.app/allToys/${params.id}`)
       },
       {
         path: "blogs",

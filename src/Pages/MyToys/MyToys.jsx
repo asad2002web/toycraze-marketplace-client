@@ -2,19 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MytoysList from "./MytoysList";
 import Swal from "sweetalert2";
+import { Button } from "flowbite-react";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   //   const [myToys,setMyToys] = useState([])
   useEffect(() => {
-    fetch(`http://localhost:4000/myToys/${user?.email}`)
+    fetch(`https://toy-craze-marketplace-server.vercel.app/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setToys(data);
       });
   }, [user]);
+
   //   Delete
   const handleDelete = (id) => {
     Swal.fire({
@@ -27,7 +29,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/allToys/${id}`, {
+        fetch(`https://toy-craze-marketplace-server.vercel.app/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -45,10 +47,12 @@ const MyToys = () => {
 
   //   Update
 
-
   return (
     <>
-      <div>MyToys</div>
+      <div className="text-xl text-center font-semibold mt-4 text-indigo-700">
+        My Toys
+      </div>
+    
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

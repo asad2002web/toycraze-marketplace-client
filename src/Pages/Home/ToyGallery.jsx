@@ -1,16 +1,20 @@
+import AOS from "aos";
 import { Card } from "flowbite-react";
-import React from "react";
+import React, { useEffect } from "react";
 
 const ToyGallery = () => {
+  useEffect(()=>{
+    AOS.init({duration:2000});
+  },[])
   return (
     <>
-      <div className="text-center my-8">
+      <div className="text-center my-8 " data-aos="fade-up">
         <h3 className="text-3xl font-semibold my-4 text-orange-500">
         Future Electronics Toys
         </h3>
       </div>
       <div className="flex flex-col md:flex-row gap-8 mb-14">
-        <Card className="md:w-1/3 ">
+        <Card className="md:w-1/3 " data-aos="fade-right">
           <img
             className="h-[250px]"
             src="https://i.ibb.co/fFrdMv5/94867340408c4c2af03c2305bfdd3408-jpg-720x720-jpg.webp"
@@ -24,7 +28,7 @@ const ToyGallery = () => {
             products at a reasonable price.
           </p>
         </Card>
-        <Card className="md:w-1/3 ">
+        <Card className="md:w-1/3 " data-aos="fade-down">
           <img
             className="h-[250px]"
             src="https://i.ibb.co/cwJGy4w/2d4b3477bfd614eaed54763649e83547-jpg-720x720-jpg.webp"
@@ -38,7 +42,7 @@ const ToyGallery = () => {
             Toys Dance Voice Talking
           </p>
         </Card>
-        <Card className="md:w-1/3 ">
+        <Card className="md:w-1/3 " data-aos="fade-left">
           <img
             className="h-[250px]"
             src="https://i.ibb.co/WkMpVqf/adc6a0f274ab502152829d3f7d8d8a86-jpg-720x720-jpg.webp"
