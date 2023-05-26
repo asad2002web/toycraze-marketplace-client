@@ -1,10 +1,9 @@
 import { Button } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
-const MytoysList = ({ toy, i,handleDelete }) => {
+const MytoysList = ({ toy, i, handleDelete }) => {
   const { _id, photo, sellerName, price, quantity, subCategories } = toy;
-  
-  
 
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -23,7 +22,8 @@ const MytoysList = ({ toy, i,handleDelete }) => {
       <td className="px-6 py-4">{subCategories}</td>
       <td className="px-6 py-4">$ {price}</td>
       <td className="px-6 py-4">
-        <Button gradientDuoTone="cyanToBlue">Update</Button>
+        <Link to={`/update/${_id}`}>
+        <Button gradientDuoTone="cyanToBlue">Update</Button></Link>
       </td>
       <td className="px-6 py-4">
         <Button onClick={() => handleDelete(_id)} gradientDuoTone="cyanToBlue">
