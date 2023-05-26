@@ -1,6 +1,7 @@
 import { Button, TextInput } from "flowbite-react";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -43,6 +44,11 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire(
+          'Added!',
+          'Your Toys has been added.',
+          'success'
+        )
       });
 
       form.reset() //Form Reset
