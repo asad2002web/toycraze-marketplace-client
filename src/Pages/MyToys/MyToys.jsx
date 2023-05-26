@@ -1,23 +1,42 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../Providers/AuthProvider'
-import MytoysList from './MytoysList';
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import MytoysList from "./MytoysList";
 
 const MyToys = () => {
-    const {user} = useContext(AuthContext)
-    const [toys, setToys] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:4000/myToys/${user?.email}`)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            setToys(data);
-          });
-      }, [user]);
+  const { user } = useContext(AuthContext);
+  const [toys, setToys] = useState([]);
+  //   const [myToys,setMyToys] = useState([])
+  useEffect(() => {
+    fetch(`http://localhost:4000/myToys/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setToys(data);
+      });
+  }, [user]);
+//   Delete
+  const handleDelete = (id) => {
+    fetch(`http://localhost:4000/allToys/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+            alert('deleted successful');
+            const remaining = toys.filter(toy => toy._id !== id);
+            setToys(remaining);
+        }
+      });
+  };
+
+  //   Update
+
   return (
     <>
-    <div>MyToys</div>
-    <div className="relative overflow-x-auto">
-    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <div>MyToys</div>
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -47,19 +66,19 @@ const MyToys = () => {
             </tr>
           </thead>
           <tbody>
-            {
-                toys.map((toy, i) => <MytoysList
+            {toys.map((toy, i) => (
+              <MytoysList
                 key={toy._id}
                 toy={toy}
                 i={i}
-                ></MytoysList>)
-            }
-           
+                handleDelete={handleDelete}
+              ></MytoysList>
+            ))}
           </tbody>
         </table>
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default MyToys
+export default MyToys;

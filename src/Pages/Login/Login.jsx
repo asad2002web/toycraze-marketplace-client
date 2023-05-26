@@ -5,22 +5,32 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-  const { loginWithGoogle } = useContext(AuthContext);
+  const { loginWithGoogle, logIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
-    setSuccess("");
-    setError("");
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log("Test working now..."); //Test purpus
 
     if (password.length < 6) {
-      setError("Password not vaild need 6 cheracters");
+      // setError("Password not vaild need 6 cheracters");
       return;
     }
+    logIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        form.reset();
+        navigate("/");
+        // setSuccess("Login is successfully completed");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        // setError(error.message);
+      });
   };
   //   Login Google
   const handleGoogleSignUp = () => {

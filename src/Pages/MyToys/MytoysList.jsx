@@ -1,8 +1,11 @@
 import { Button } from "flowbite-react";
 import React from "react";
 
-const MytoysList = ({ toy, i }) => {
-  const { photo, sellerName, price, quantity, subCategories } = toy;
+const MytoysList = ({ toy, i,handleDelete }) => {
+  const { _id, photo, sellerName, price, quantity, subCategories } = toy;
+  
+  
+
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
       <td className=" text-center">{i + 1}</td>
@@ -23,7 +26,9 @@ const MytoysList = ({ toy, i }) => {
         <Button gradientDuoTone="cyanToBlue">Update</Button>
       </td>
       <td className="px-6 py-4">
-        <Button gradientDuoTone="cyanToBlue">Delete</Button>
+        <Button onClick={() => handleDelete(_id)} gradientDuoTone="cyanToBlue">
+          Delete
+        </Button>
       </td>
     </tr>
   );

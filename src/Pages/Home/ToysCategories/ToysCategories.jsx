@@ -40,7 +40,7 @@ const ToysCategories = () => {
         <TabPanel>
           <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
-              <Card>
+              <Card key={toy._id}>
                 <img className="h-56 block mx-auto" src={toy.photo} alt="" />
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   {toy.name}
@@ -65,7 +65,7 @@ const ToysCategories = () => {
         <TabPanel>
           <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
-              <Card>
+              <Card key={toy._id}>
                 <img className="h-56 block mx-auto" src={toy.photo} alt="" />
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   {toy.name}
@@ -90,7 +90,7 @@ const ToysCategories = () => {
         <TabPanel>
           <div className="md:grid grid-cols-3 grid-rows-1 gap-4 mt-6">
             {toyCategories?.map((toy) => (
-              <Card>
+              <Card key={toy._id}>
                 <img className="h-56 block mx-auto" src={toy.photo} alt="" />
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   {toy.name}
