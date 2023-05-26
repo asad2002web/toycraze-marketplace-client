@@ -1,6 +1,7 @@
 import { Button, Card } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { toast } from "react-toastify";
 
@@ -55,9 +56,11 @@ const ToysCategories = () => {
                   </p>
                 </div>
 
+                <Link to={`/toydetails/${toy._id}`}>
                 <Button className="mt-8" color="dark">
                   Details
                 </Button>
+                </Link>
               </Card>
             ))}
           </div>
@@ -79,7 +82,6 @@ const ToysCategories = () => {
                     $ {toy.price}
                   </p>
                 </div>
-
                 <Button className="mt-8" color="dark">
                   Details
                 </Button>

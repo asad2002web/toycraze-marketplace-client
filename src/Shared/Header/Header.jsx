@@ -19,9 +19,11 @@ const Header = () => {
       rounded={true}
       className="py-4 bg-slate-100 sm:px-0 px-0"
     >
-      <Navbar.Brand>
-        <img src={Logo} alt="toycraze Logo" />
-      </Navbar.Brand>
+      <Link>
+        <Navbar.Brand>
+          <img src={Logo} alt="toycraze Logo" />
+        </Navbar.Brand>
+      </Link>
       <div className="flex md:order-2">
         {user ? (
           <div className="flex items-center">

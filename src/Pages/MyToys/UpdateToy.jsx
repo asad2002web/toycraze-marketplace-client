@@ -1,14 +1,26 @@
 import { Button, TextInput } from "flowbite-react";
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const UpdateToy = () => {
-    const {user} = useContext(AuthContext)
-    const toy = useLoaderData();
-    const {_id, name, email, ratting, photo, sellerName, price, description, quantity, subCategories} = toy;
-    // console.log(toy)
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const toy = useLoaderData();
+  const {
+    _id,
+    name,
+    email,
+    ratting,
+    photo,
+    sellerName,
+    price,
+    description,
+    quantity,
+    subCategories,
+  } = toy;
+  // console.log(toy)
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,10 +30,6 @@ const UpdateToy = () => {
     const subCategories = form.subCategories.value;
     const description = form.description.value;
     const updateToy = {
-      name,
-      photo,
-      email,
-      sellerName,
       price,
       ratting,
       quantity,
@@ -32,29 +40,31 @@ const UpdateToy = () => {
 
     // Send data to the server
     fetch(`http://localhost:4000/allToys/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updateToy)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Toy Updated Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                }
-            })
-   
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Toy Updated Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+        navigate("/mytoys");
+      });
   };
   return (
     <div className="my-8">
-         <h2 className="text-2xl text-center text-semibold mb-6">Update Toy : {name}</h2>
+      <h2 className="text-2xl text-center text-semibold mb-6">
+        Update Toy : {name}
+      </h2>
       <form onSubmit={handleUpdate}>
         <div className="flex flex-col md:grid grid-cols-4 grid-rows-3 gap-4">
           <div className="col-span-2">
