@@ -39,7 +39,7 @@ const UpdateToy = () => {
     // console.log(updateToy);
 
     // Send data to the server
-    fetch(`https://toy-craze-marketplace-server.vercel.app/${_id}`, {
+    fetch(`https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/allToys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -18,7 +18,7 @@ const ToysCategories = () => {
   };
 
   useEffect(() => {
-    fetch(`https://toy-craze-marketplace-server.vercel.app/allToys`)
+    fetch(`https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);

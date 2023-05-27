@@ -42,12 +42,22 @@ const Routes = createBrowserRouter([
       {
         path: "update/:id",
         element: <UpdateToy></UpdateToy>,
-        loader: ({params}) => fetch(`https://toy-craze-marketplace-server.vercel.app/allToys/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/allToys/${params.id}`
+          ),
       },
       {
         path: "toydetails/:id",
-        element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`https://toy-craze-marketplace-server.vercel.app/allToys/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/allToys/${params.id}`
+          ),
       },
       {
         path: "blogs",

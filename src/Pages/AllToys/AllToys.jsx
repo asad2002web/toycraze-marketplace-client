@@ -10,7 +10,7 @@ const AllToys = () => {
   const [searchText, setSearchText] = useState("")
 
   useEffect(() => {
-    fetch('https://toy-craze-marketplace-server.vercel.app/allToys')
+    fetch('https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/allToys')
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -19,7 +19,7 @@ const AllToys = () => {
 
     // Search
     const handleSearch = () => {
-      fetch(`https://toy-craze-marketplace-server.vercel.app/${searchText}`)
+      fetch(`https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/getToyByText/${searchText}`)
         .then((res) => res.json())
         .then((data) => {
           setAllToys(data);
