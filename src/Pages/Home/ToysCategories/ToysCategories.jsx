@@ -18,7 +18,7 @@ const ToysCategories = () => {
   };
 
   useEffect(() => {
-    fetch(`https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app`)
+    fetch(`https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/allToys`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
@@ -85,9 +85,11 @@ const ToysCategories = () => {
                     $ {toy.price}
                   </p>
                 </div>
+                <Link to={`/toydetails/${toy._id}`}>
                 <Button className="mt-8" color="dark">
                   Details
                 </Button>
+                </Link>
               </Card>
             ))}
           </div>
@@ -110,9 +112,11 @@ const ToysCategories = () => {
                   </p>
                 </div>
 
+                <Link to={`/toydetails/${toy._id}`}>
                 <Button className="mt-8" color="dark">
                   Details
                 </Button>
+                </Link>
               </Card>
             ))}
           </div>

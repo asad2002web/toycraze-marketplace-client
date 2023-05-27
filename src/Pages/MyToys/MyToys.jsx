@@ -9,7 +9,9 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
   //   const [myToys,setMyToys] = useState([])
   useEffect(() => {
-    fetch(`https://toy-craze-marketplace-server.vercel.app/${user?.email}`)
+    fetch(
+      `https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/myToys/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -29,9 +31,12 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://toy-craze-marketplace-server.vercel.app/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://toy-craze-marketplace-server-asad2002web-gmailcom.vercel.app/allToys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -52,7 +57,7 @@ const MyToys = () => {
       <div className="text-xl text-center font-semibold mt-4 text-indigo-700">
         My Toys
       </div>
-    
+
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
